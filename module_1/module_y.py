@@ -10,12 +10,14 @@ from __future__ import annotations
 
 
 def format_currency(amount: float) -> str:
+    """Return amount formatted as a dollar string, e.g. "$1,234.50" or "-$1,234.50"."""
     if amount < 0:
         return f"-${abs(amount):,.2f}"
     return f"${amount:,.2f}"
 
 
 def build_report_title(project_name: str, version: str) -> str:
+    """Return a "<project> — <version>" title, normalizing whitespace and defaulting blank inputs."""
     clean_project = " ".join(project_name.strip().split())
     clean_version = version.strip()
 
@@ -28,6 +30,7 @@ def build_report_title(project_name: str, version: str) -> str:
 
 
 def mask_email(email: str) -> str:
+    """Return email with the local part partially masked (e.g. "j***e@example.com") and domain lowercased."""
     email = email.strip()
     if "@" not in email:
         raise ValueError("email must contain @")
@@ -47,6 +50,7 @@ def mask_email(email: str) -> str:
 
 
 def generate_summary_line(name: str, status: str, score: int) -> str:
+    """Return a "Name: status (score)" line with the name title-cased and status normalized."""
     display_name = " ".join(name.strip().split()).title()
     display_status = status.strip().lower().replace("_", " ")
 
@@ -57,6 +61,7 @@ def generate_summary_line(name: str, status: str, score: int) -> str:
 
 
 def create_markdown_table(rows: list[dict[str, object]], columns: list[str]) -> str:
+    """Return a Markdown table for rows, using columns as the header and row key order; missing keys render blank."""
     if not columns:
         raise ValueError("columns cannot be empty")
 
@@ -72,6 +77,7 @@ def create_markdown_table(rows: list[dict[str, object]], columns: list[str]) -> 
 
 
 def truncate_text(text: str, max_length: int = 80) -> str:
+    """Return text with whitespace normalized, truncated to max_length with a trailing "..." if needed."""
     if max_length < 4:
         raise ValueError("max_length must be at least 4")
 

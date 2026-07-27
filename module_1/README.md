@@ -2,6 +2,23 @@
 
 Docker development environment for LaunchCode's **Agentic Programming** course. Provides a consistent, pre-configured Python environment with AI/ML libraries, Anthropic Claude integration, and the Claude Code CLI.
 
+## Project Structure
+
+```
+module_1/
+  CLAUDE.md              # Guidance for Claude Code when working in this repo
+  Dockerfile             # Image definition for the course environment
+  docker-entrypoint.sh   # Container entrypoint script
+  requirements.txt       # Python dependencies
+  settings.json          # Claude Code settings baked into the image
+  statusline.sh          # Custom Claude Code status line script
+  agent_docker_check.md  # Prompt for validating the Docker build
+  module_x.py            # Business-rule utilities (see docstrings for details)
+  module_y.py            # Formatting and reporting utilities (see docstrings for details)
+  tests/
+    test_module_x.py     # Unit tests for module_x.py
+```
+
 ## Quick Start from GitHub
 
 Clone the repo and build locally:
