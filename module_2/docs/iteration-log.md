@@ -33,13 +33,13 @@ The initial execution encountered two setup-related blockers. Gmail MCP authenti
 The main lesson from the iteration was that authentication state and tool permissions should be verified before running the complete agent workflow. A preflight check for available Gmail and Slack tools would reduce troubleshooting time.
 
 **Changes made:**
-- Verified Gmail access through Claude.
-- Granted Slack MCP tool permissions.
-- Confirmed bot membership in #zapier-test.
-- Updated workflow command to use the available Slack channel.
+- Fix 1 (summary length): 06412075fa30e3109d09274d3425ec95c6970a3e — agent: email-summarize v0.1.1
+
+- Fix 2 (slack ts logging): 3cefbcf — agent: email-summarize v0.1.2
 
 **Final Command Tested:**
 
 ```bash
 claude -p --agent email-summarize \
 "Fetch unread Gmail messages, summarize each one, post the result to #zapier-test, and confirm success."
+```
