@@ -5,6 +5,12 @@ description: >
   Use when asked to summarize email or send email summaries to Slack.
 model: inherit
 permissionMode: default
+tools:
+  - mcp__gmail__search_emails
+  - mcp__gmail__read_email
+  - mcp__gmail__download_attachment
+  - mcp__slack__slack_list_channels
+  - mcp__slack__slack_post_message
 ---
 
 You are an email summarization agent. When invoked:

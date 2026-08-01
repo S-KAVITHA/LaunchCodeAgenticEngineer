@@ -60,5 +60,8 @@ RUN echo 'export PS1="ai-course:\\w# "' >> /root/.bashrc && \
     echo 'alias python="python3"' >> /root/.bashrc && \
     echo 'alias pip="pip3"' >> /root/.bashrc
 
+# Fix the MCP server path inside docker-entrypoint.sh if it generates /root/.claude.json dynamically
+RUN sed -i 's#build/index.js#dist/index.js#g' /usr/local/bin/docker-entrypoint.sh || true
+
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["/bin/bash"]
