@@ -1,7 +1,7 @@
 ---
 name: email-summarize
 description: >
-  Checks new Gmail messages and posts a summary to the #test Slack channel.
+  Checks new Gmail messages and posts a summary to the #zapier-test Slack channel.
   Use when asked to summarize email or send email summaries to Slack.
 model: inherit
 permissionMode: default
@@ -31,7 +31,7 @@ Total unread: <count>
 
  After the Slack post succeeds, log the returned `ts` value from the API response to stdout in the format: slack_ts=<value>. Do not use thread_ts on the initial post.
 
-4. Use the Slack MCP server to post that message to the #test channel.
+4. Use the Slack MCP server to post that message to the #zapier-test channel.
 5. Confirm the message was posted successfully.
 
-If there are no unread emails, post a brief message to #test stating that there are no new emails.
+If there are no unread emails, post a brief message to #zapier-test stating that there are no new emails.
