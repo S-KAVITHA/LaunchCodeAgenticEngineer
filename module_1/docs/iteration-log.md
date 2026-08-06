@@ -48,7 +48,8 @@ Cost per Run: $0.04 (3,520 input tokens / 1,080 output tokens)
 **Decision:** Accepted as a repeat baseline run. No changes were made after this run.
 
 
-##Run 004 — 2026-08-06 — Reflection Run 4
+
+## Run 002 – 2026-08-06 — Reflection Run 3
 
 **Task:** Evaluate the multi-turn API integration blog editing workflow, verify style-guide adherence across revisions, and identify any rule drift after the style guide update in Message 4.
 
@@ -70,7 +71,7 @@ Coherence	4 / 4	Improved	Final consistency pass aligned all sections under the u
 
 **Observations:**
 
-Run 004 evaluated the agent's ability to maintain style-guide consistency through multiple editing rounds and a mid-task rule update.
+Run 003 evaluated the agent's ability to maintain style-guide consistency through multiple editing rounds and a mid-task rule update.
 
 Original Rule Application (Messages 2–3):
 The agent correctly applied:
