@@ -107,3 +107,82 @@ Task Adherence	4/4
 Coherence	4/4
 
 **Overall Score:** 4.0 / 4.0 — Pass
+
+
+## Run 004 — 2026-08-06 — Rerun the Style Guide Agent With Context Boundaries
+
+**Task:** Rerun the style guide editing workflow using explicit context boundaries for each phase. Evaluate whether the agent correctly follows the active rule set, handles rule changes, removes outdated rules, and maintains consistency across the complete blog post revision process.
+
+**Workflow Result:**
+
+Dimension	Result	Comparison vs. Previous Run	Notes
+Rule Accuracy	Pass	New	Agent correctly applied the initial style guide in Messages 1–2, including active voice, ≤25-word sentences, prohibited word replacement, technical-term bolding, “In short:” summaries, and Oxford commas. After the update, it correctly applied the 35-word limit, removed summaries, and added question-based section openings.
+Task Adherence	Pass	New	Agent correctly tracked the style-guide transition in Message 4, identified changed and removed rules, and updated previously edited sections when instructed in Message 6.
+Coherence	Pass	New	Final output maintained a consistent style across Introduction, Authentication, Making Requests, Error Handling, and Best Practices using the final active rule set.
+Drift Detection	Pass	New	Agent successfully avoided applying outdated rules after the style-guide change and completed the final consistency review against the current rules.
+
+**Total:** 4 / 4 rubric checks passed
+
+**Pass/Fail:** Pass — The context-boundary approach successfully kept each editing phase aligned with the active style guide and prevented rule drift across revisions.
+
+**Measurements:**
+
+Cycle time: ~2m 33s 
+Review latency: ~5 minutes
+Cost per run: $0.77 USD 
+
+**Observations:**
+Run 004 tested the effectiveness of context boundaries during a multi-stage editing workflow.
+
+Initial Style Guide Application (Messages 1–2):
+The agent correctly followed the original rules:
+Used active voice throughout.
+Enforced the 25-word sentence limit.
+Replaced “utilize” and “leverage.”
+Added required “In short:” summaries.
+Applied Markdown bold syntax for first-use technical terms.
+Style Guide Transition Handling (Message 4):
+The agent correctly processed the updated rules:
+Changed sentence length from ≤25 words to ≤35 words.
+Removed the “In short:” summary requirement.
+Added the requirement for each section to begin with a question.
+Confirmed the changed and removed rules before continuing.
+Previous Section Updates (Message 6):
+The agent correctly revisited earlier sections:
+Removed old “In short:” summaries.
+Added question openers to Introduction and Authentication.
+Preserved the remaining active rules.
+New Section Creation (Message 7):
+The agent created the Best Practices section using only the updated style guide:
+Added an opening question.
+Maintained sentence length limits.
+Applied technical-term formatting per section.
+Avoided outdated summary requirements.
+Final Consistency Pass (Message 8):
+The agent reviewed the entire post and validated:
+No passive voice violations.
+No prohibited terminology.
+No outdated “In short:” summaries.
+Correct section structure.
+Consistent formatting across all sections.
+
+**Drift Analysis:**
+
+Messages 1–2: No drift. Agent correctly followed the original style guide.
+Message 3: No drift. Agent recognized and applied the updated rules.
+Message 4: No drift. Agent correctly removed superseded rules.
+Message 5–6: No drift. Agent correctly migrated previous sections to the new rules.
+Message 7: No drift. New content followed the current rule set.
+Message 8: No drift. Final audit confirmed consistency.
+
+**Most Significant Drift Observed:**
+No significant drift observed. The context boundaries helped the agent maintain awareness of which rules were active and prevented mixing the old and updated style guides.
+
+**Final Rubric Scores:**
+
+Dimension	Score
+Rule Accuracy	4/4
+Task Adherence	4/4
+Coherence	4/4
+
+**Overall: ** 12/12 — Exceeds Expectations
