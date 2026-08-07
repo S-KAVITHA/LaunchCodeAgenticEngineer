@@ -66,16 +66,24 @@ constrain future choices, things that were tried and did not work.)
 After producing the handoff document, ask the user to review it for completeness and accuracy before closing the session. The user may edit it before using it to start the next session.
 
 
+---
+name: write-handoff
+description: >
+  Produces a complete, self-contained handoff document for ending a session
+  and briefing a fresh one. Use when a session is ending and its work needs
+  to continue in a new session with no access to prior context.
+---
 
-## Handoff Review Updates
+# Skill: Write Handoff Document
 
-- Current State of All Artifacts: Verified that edited sections should include the full verbatim text, not only descriptions. Ensure Introduction and Authentication contain the exact latest edited versions.
-- Rules and Constraints: Updated to include all seven original style guide rules verbatim.
-- Phase Two Instructions: Expanded to include all remaining work:
-  - Apply the updated style guide changes (35-word limit, remove "In short:", add question-based openings).
-  - Update Introduction and Authentication to match the new rules.
-  - Edit Making Requests and Error Handling.
-  - Create the Best Practices section.
-  - Perform a final consistency pass across all sections.
-- Acceptance Criteria: Confirmed it should describe the final post state under the active style guide.
-- Additional Note: Future sessions must verify the handoff against the current document state before continuing, rather than relying only on summaries.
+When this skill is invoked, produce a structured handoff document
+using exactly the format below. This document will be the only context
+given to the next session. It must be complete enough that the next
+session can continue the work correctly without access to any prior
+conversation.
+
+Do not summarize or paraphrase rules, acceptance criteria, or file
+contents. Copy them verbatim. The next session has no way to check
+your work against the original, so accuracy here is critical.
+
+---
