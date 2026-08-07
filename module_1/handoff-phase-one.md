@@ -71,4 +71,4 @@ A correct, complete final document has all five sections (Introduction, Authenti
 
 - The CLAUDE.md "Agent Context Boundary Policy" requires a Context Boundary Check at the start of every phase. Continue following this in Phase Two.
 
-- Sections were previously edited one at a time with explicit user sign-off between each. Maintain that pattern for Making Requests, Error Handling, Introduction/Authentication rework, and Best Practices.
+- Sections were previously edited one at a time with explicit user sign-off between each. Maintain that pattern for Making Requests, Error Handling, Introduction/Authentication rework, and Best Practices. 
