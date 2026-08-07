@@ -189,12 +189,12 @@ Coherence	4/4
 
 
 
-## Run 004 — 2026-08-06 — Style Guide Agent Using Verified Summary Context
+## Run 005 — 2026-08-06 — Style Guide Agent Using Verified Summary Context
 
  **Task: ** Continue the blog post editing workflow using a verified summary instead of the full conversation history. Evaluate whether the agent correctly applied the current style guide and maintained consistency.
 
  **Workflow Result: **
-Dimension	Result	Comparison vs. Run 004	Notes
+Dimension	Result	Comparison vs. Run 005	Notes
 Rule Accuracy	Pass	Maintained	Correctly applied the updated rules and verified existing sections already complied.
 Task Adherence	Pass	Maintained	Correctly distinguished the original and updated rules after the fresh start and validated the document before editing.
 Coherence	Pass	Maintained	Final consistency check confirmed all sections followed the current style guide.
