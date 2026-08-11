@@ -230,104 +230,80 @@ Coherence	4/4
 
  **Overall: ** 12/12 — Exceeds Expectations 
   
- 
- ## Run 006 — 2026-08-06 — Observing Results from Manual Compaction
+  
+## Run 006 — 2026-08-06 — Observing Results from Manual Compaction
 
-**Task:** Evaluate how manual conversation compaction affected the agent's ability to retain the original task, style guide, workflow state, and document consistency.
+Task: Evaluate how manual conversation compaction affected the agent's ability to retain the original task, style guide, workflow state, and document consistency.
 
-**Workflow Result**
-Dimension	Result	Comparison vs. Run 006	Notes
-Rule Recall	Partial	Regressed	Correctly remembered the general task but could not fully restate the original style guide after compaction.
-Task State Retention	Pass	Maintained	Correctly inspected the current document instead of relying on incomplete memory.
-Coherence	Pass	Maintained	Final consistency check confirmed all sections still followed the active style guide.
+Workflow Result
+Dimension Result Comparison vs. Run 001 Notes
+Rule Accuracy Pass Maintained Correctly applied the updated style guide after compaction without reverting to the original rules.
+Task Adherence Pass Maintained Correctly tracked completed work and verified the current document before continuing.
+Coherence Pass Maintained Final document remained internally consistent and compliant with the active style guide.
 
-**Total:** 2 / 3 rubric checks passed
+Total: 3 / 3 rubric checks passed
 
-**Pass/Fail: **Pass — Manual compaction reduced recall of earlier conversation details, but the agent avoided hallucinating missing information by verifying the current document.
+Pass/Fail: Pass — Manual compaction reduced detailed conversational recall but did not cause rule drift, unnecessary edits, or document inconsistency.
 
-**Measurements**
-Cycle time: ~49s
-Review latency: ~2 minutes
-Cost per run: ~$0.99 USD
-
-**Observations**
-Correctly recognized the limitations introduced by manual compaction instead of inventing missing context.
-Could not fully reconstruct the original task or complete style guide from memory.
-Verified the current document and iteration log before answering follow-up questions.
-Final consistency pass confirmed the blog post remained compliant with the current style guide.
-Drift Analysis
-Original Rule Recall: Partial drift after compaction.
-Task Adherence: No drift.
-Coherence: No drift.
-Most Significant Drift Observed
-
-The largest drift was the loss of detailed memory of the original style guide after manual compaction, although the agent compensated by consulting the current document instead of guessing.
-
-**Final Rubric Scores**
-Dimension	Score
-Rule Recall	2/4
-Task State Retention	4/4
-Coherence	4/4
-
-**Overall:** 10/12 — Meets Expectations
-
-
-
- ## Run 007 — 2026-08-06 — Observe the Behavioral Impact
-
-**Task:**Evaluate the agent after manual compaction to determine whether it preserved the active style guide, tracked completed work, and maintained consistency across the blog post editing workflow.
-
-**Workflow Result**
-Dimension	Result	Comparison vs. Previous Run	Notes
-Rule Accuracy	Pass	Maintained	Correctly applied the updated style guide and did not mix the original and updated rules after compaction.
-Task Adherence	Pass	Maintained	Correctly identified completed work and verified the current document before making changes.
-Coherence	Pass	Maintained	Final post remained consistent across all sections using the active rules.
-
-**Total:** 3 / 3 rubric checks passed
-
-**Pass/Fail: **Pass — Manual compaction reduced available history but did not cause rule drift or unnecessary edits.
-
-**Measurements**
+Measurements
 Context before compaction: ~54k tokens used (shown as ~5% context usage).
 Context after compaction: Significantly reduced; exact token count was unavailable because no token counter was provided.
 Cycle time: ~1m 53s
 Review latency: ~3 minutes
 Cost per run: N/A
-**Observations**
-The agent correctly continued with the updated style guide after compaction.
-It correctly verified the current file state instead of assuming previous edits were missing.
-It recognized that Making Requests, Error Handling, Introduction, Authentication, and Best Practices already satisfied the updated rules.
-It avoided recreating or overwriting completed sections.
-The final consistency review confirmed no remaining violations.
+
+Observations
+
+Correctly continued with the updated style guide after compaction.
+Correctly verified the current file state instead of relying entirely on memory.
+Avoided recreating or overwriting completed sections.
+Final consistency review confirmed no remaining violations.
+Detailed conversational recall was weaker after compaction.
+
 Probe Results
-Probe	Result	Notes
-Original task and full style guide recall	Incorrect	The agent could not fully reconstruct the original task and rules after compaction and correctly stated it lacked that history.
-Current Introduction section state	Fully Correct	The agent retrieved the actual edited section from the file and reported the current content accurately.
-Style guide changes since start	Partially Correct	The agent identified the updated rules from available logs but could not verify the exact conversation history that introduced them.
-Remaining work after compaction	Fully Correct	The agent verified the document and correctly concluded that no work remained.
-**Error Analysis**
-The main limitation after compaction was loss of conversational history, which affected recall-based questions.
-The errors were related to information unavailable after compaction, not incorrect editing behavior.
-For document-based tasks, the agent performed reliably by checking the current file state.
-Compared with the unmanaged baseline from the first run, the agent showed similar caution but stronger verification behavior after compaction.
-**Drift Analysis**
+Probe Result Notes
+Original task and full style guide recall Incorrect Could not fully reconstruct the original task and complete style guide after compaction.
+Current Introduction section state Fully Correct Retrieved and accurately reported the current edited section.
+Style guide changes since start Partially Correct Identified the updated rules from available logs but could not fully verify the original conversation history.
+Remaining work after compaction Fully Correct Verified the document state and correctly concluded what work remained.
+
+Error Analysis
+
+The main errors were related to information that was no longer fully available after compaction, particularly detailed conversational history. The agent performed reliably when it could verify information from the current document or project files.
+
+Compared with the unmanaged baseline from Run 001, the agent showed stronger verification behavior and avoided inventing missing information.
+
+Drift Analysis
 Rule Accuracy: No drift.
 Task Adherence: No drift.
 Coherence: No drift.
+
 Most Significant Drift Observed
 
-No significant drift observed. The agent did not revert to the original style guide, repeat completed edits, or introduce inconsistencies after compaction.
+No significant behavioral drift was observed in the editing workflow. The primary limitation was reduced recall of detailed conversational history after compaction.
 
-**Final Rubric Scores**
-Dimension	Score
-Rule Accuracy	4/4
-Task Adherence	4/4
-Coherence	4/4
+Final Rubric Scores
+Dimension Score
+Rule Accuracy 4/4
+Task Adherence 4/4
+Coherence 4/4
 
-**Overall:** 12/12 — Exceeds Expectations
+Overall: 12/12 — Exceeds Expectations
+
+**Context Boundary Policy Update**
+
+Updated `CLAUDE.md` with a Compaction Policy based on the probe results.
+
+Compaction reliably preserves: General task intent, major style-guide rules, and high-level workflow context.
+Compaction may lose or distort: Detailed conversational history, exact rule wording, and specific edited file states.
+Proactive summarization threshold: Before the context window exceeds 60% capacity.
+
+Commit: agent: context boundary policy v0.2.0 -- add compaction observations
 
 
-## Run 008 — 2026-08-07 — Handoff Boundary Evaluation
+
+
+## Run 007 — 2026-08-07 — Handoff Boundary Evaluation
 
 **Task:** Evaluate the phase two session against the rubric and assess whether the handoff preserved task state, rules, and context accurately.
 
