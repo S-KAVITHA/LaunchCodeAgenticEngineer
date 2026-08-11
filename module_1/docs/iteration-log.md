@@ -1,5 +1,6 @@
 # Iteration Log
 
+
 ## Run 001 – Baseline
 
 **Date:** July 30, 2026
@@ -49,7 +50,7 @@ Cost per Run: $0.04 (3,520 input tokens / 1,080 output tokens)
 
 
 
-## Run 003 – 2026-08-06 — Reflection Run 3
+## Run 003 – 2026-08-06 — Style Guide Agent sequence
 
 **Task:** Evaluate the multi-turn API integration blog editing workflow, verify style-guide adherence across revisions, and identify any rule drift after the style guide update in Message 4.
 
