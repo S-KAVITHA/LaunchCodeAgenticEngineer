@@ -305,7 +305,7 @@ Commit: agent: context boundary policy v0.2.0 -- add compaction observations
 
 ## Run 007 — 2026-08-07 — Handoff Boundary Evaluation
 
-**Task:** Evaluate the phase two session against the rubric and assess whether the handoff preserved task state, rules, and context accurately.
+**Task:** Evaluate the Phase two session against the rubric and assess whether the handoff preserved task state, rules, and context accurately.
 
 **Workflow Result**
 
@@ -329,15 +329,16 @@ Cost per run: N/A
 
 **Observations**
 
-The phase two agent correctly oriented from the handoff alone.
+The Phase Two agent correctly oriented from the handoff document alone.
 
-It identified the current rules, completed work, remaining work, and required sequence.
+It correctly identified the current rules, completed work, remaining work, and required workflow constraints from the handoff.
 
-No substantive gaps in the handoff caused problems. The only issue was minor over-caution about reconfirming the already-documented style-guide update.
+No substantive gaps in the handoff caused problems. The agent showed minor over-caution when discussing whether the Phase Two rule changes had been established, despite the handoff explicitly identifying them as user-specified directives.
 
-Phase two showed stronger state tracking and consistency than the initial baseline.
+Phase Two showed stronger state tracking and consistency than the initial baseline, with no observed rule drift or repeated work.
 
-The handoff boundary was visible positively through a clean start with no meaningful drift or repeated work.
+The handoff boundary was visible positively: the agent started cleanly from the handoff, preserved
+task state, and showed no meaningful drift or repeated work.
 
 **Probe Results**
 
@@ -353,7 +354,7 @@ The handoff boundary was visible positively through a clean start with no meanin
 
 No substantive errors resulted from the handoff.
 
-The only minor issue was unnecessary caution about reconfirming rules that the handoff already documented as user-confirmed.
+The only minor issue was unnecessary caution about reconfirming the Phase Two rules, even though the handoff documented them as user-specified directives.
 
 **Drift Analysis**
 
