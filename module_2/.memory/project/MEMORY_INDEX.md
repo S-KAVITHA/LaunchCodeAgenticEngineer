@@ -6,6 +6,7 @@ Last updated: 2026-08-25
 
 - [decisions/decision-001.md](decisions/decision-001.md) — Tests remain under `src/test/java` using the existing Maven package structure.
 - [decisions/decision-002.md](decisions/decision-002.md) — Backend code remains compatible with Java 8.
+- [decisions/decision-bad.md](...) — API connection approach using service account. Recorded 2026-08-28. Review by 2026-11-26.
 
 ## Archived entries
 
