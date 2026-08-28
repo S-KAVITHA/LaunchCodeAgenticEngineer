@@ -136,6 +136,7 @@ This applies to all entries in .memory/project/.
 Knowledge files do not have review dates and are
 maintained by humans directly.
 
+
 ### Scope verification
 
 Read SCOPE.md at the root of .memory/ on startup. If it does not

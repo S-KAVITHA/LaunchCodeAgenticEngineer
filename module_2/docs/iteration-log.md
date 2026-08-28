@@ -452,3 +452,53 @@ No significant drift observed. The handoff supported a clean continuation withou
 | Coherence      | 4/4   |
 
 **Overall:** 12/12 — Exceeds Expectations
+
+## Run 009 — 2026-08-25 — Stale Memory Policy Failure Mode
+
+**Task:** Test the stale memory policy by adding a passed review date to a project memory entry, updating CLAUDE.md, and rerunning the project-memory review to verify that stale memory is blocked until human confirmation.
+
+**Workflow Result:**
+
+Dimension	Result	Comparison vs. Previous Run	Notes
+Stale Memory Detection	Pass	New	Claude detected that decision-001.md had a review date of 2025-11-23, which had passed.
+Policy Enforcement	Pass	Improved	Claude followed the updated CLAUDE.md policy and did not act on the stale entry.
+Human Confirmation	Pass	New	Claude explicitly requested confirmation before proceeding with the stale memory entry.
+
+**Total:** 3 / 3 workflow checks passed
+
+**Pass/Fail:** Pass — The updated stale memory policy correctly detected the expired review date and blocked use of the entry pending human confirmation.
+
+**Measurements:**
+
+Cycle time: N/A
+Review latency: N/A
+Cost per run: N/A
+
+**Observations:**
+
+The initial test did not trigger the stale-memory policy because decision-001.md had a Date field but no explicit review date.
+
+CLAUDE.md was updated to require checking the review date of every .memory/project/ entry before acting on it.
+
+After adding Review by: 2025-11-23, the rerun correctly identified the entry as stale.
+
+Claude explicitly stated:
+
+“Memory entry decision-001.md has a review date of 2025-11-23, which has passed. Please confirm this is still current before I proceed.”
+
+Claude did not use the stale entry without confirmation.
+
+Outcome: Stale memory was detected and blocked pending human confirmation.
+
+CLAUDE.md Updated: Yes — the stale memory policy was made explicit.
+
+Rerun Confirmation: Pass — The rerun confirmed that an entry with a passed review date is flagged and requires human confirmation before use.
+
+**Final Rubric Scores:**
+
+Dimension	Score
+Stale Memory Detection	4/4
+Policy Enforcement	4/4
+Human Confirmation	4/4
+
+**Overall:** 12/12 — Pass
