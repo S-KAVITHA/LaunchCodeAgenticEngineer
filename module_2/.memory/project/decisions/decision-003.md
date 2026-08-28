@@ -1,4 +1,4 @@
-# Decision 099 - API Connection Approach
+# Decision 003 - API Connection Approach
 
 **Date:** 2026-08-28
 
@@ -10,7 +10,11 @@
 service account.
 
 **Rationale:** The service account was set up by the
-infrastructure team. [REDACTED — API key omitted per memory write policy: secrets must never be stored in memory]
+infrastructure team. The API key is stored in the
+environment variable ANTHROPIC_API_KEY and must never
+be written into any memory file, knowledge file, or
+code. To use it, reference the environment variable
+only.
 
 **Alternatives rejected:** Using personal credentials
 was rejected for security reasons.
