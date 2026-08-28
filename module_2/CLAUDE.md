@@ -136,11 +136,22 @@ This applies to all entries in .memory/project/.
 Knowledge files do not have review dates and are
 maintained by humans directly.
 
-
 ### Scope verification
 
-Read SCOPE.md at the root of .memory/ on startup. If it does not
-match this project, halt and report the mismatch before doing
-anything else.
+The very first thing you must do at the start of
+every session — before reading any memory entries
+or doing any work — is:
 
-Then confirm the file was created and show me its contents.
+1. Read .memory/SCOPE.md (or /memory/SCOPE.md inside
+   the container)
+2. Check that the Project name in that file matches
+   the name of the repo you are currently working in
+3. If they do not match, stop immediately and output:
+   "SCOPE MISMATCH: Memory directory belongs to
+   [name in SCOPE.md] but current project is
+   [current project]. Do not proceed until the
+   correct memory directory is mounted."
+4. Do not read any other memory files until the
+   scope check passes
+
+Show me the updated section to confirm.
