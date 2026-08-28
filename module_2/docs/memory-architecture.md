@@ -31,3 +31,32 @@ Alternatives considered
 
 A single memory layer was rejected because it could become cluttered. The three-layer approach keeps current work, stable rules, and reference material separate.
 
+## Data Classification
+
+Before writing anything to a memory file, classify it:
+
+- **Public** — Safe to commit to the repo and share
+  broadly. Most project decisions and coding standards
+  fall here.
+
+- **Internal** — Safe within the team but not for
+  public repos. Store in a non-committed volume or
+  .gitignore the containing folder.
+
+- **Confidential** — Sensitive business data. Do not
+  store in agent memory. Retrieve from secure systems
+  on demand.
+
+- **Secret** — Credentials, tokens, API keys, PII.
+  Must never appear in any memory file. If the agent
+  encounters a secret during a run, use it for the
+  immediate task only and explicitly do not write it
+  to any memory layer. Reference the environment
+  variable name instead.
+
+### Guardrails
+
+A pre-commit hook at .git/hooks/pre-commit scans
+.memory/ for common credential patterns before each
+commit. If a pattern is found, the commit is blocked.
+
