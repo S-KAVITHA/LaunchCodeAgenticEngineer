@@ -22,3 +22,12 @@
 - Ceiling check: Reviewer internal-cost lookup should not return `cost-breakdown.md`.
 - Audit check: `write_entry` records should exist for Planner, Implementer, and Reviewer with `calling_role` populated.
 - Status: ready to verify in the course harness.
+
+## Run 1 — Tool-scope verification (pre-run check)
+
+- Date: 2026-08-29
+- Role tested: implementer
+- Tool attempted: mcp__coursetools__task_tracker
+- Expected: denied (task_tracker is owned by project-manager)
+- Result: server returned an authorization error.
+- Conclusion: the denial is enforced, not merely declared.
